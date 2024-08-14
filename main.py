@@ -36,6 +36,13 @@ def start():
         print("Please restart the program and enter a valid response (y/n)")
         exit()
 
+    #Ask to view Acknowledgments
+
+    view_ack = input("Would you like to view the acknowledgments? (y/n)")
+
+    if view_ack.lower() == "y":
+        ack()
+    
 
 #Game Rules
 def game_rule(): 
@@ -55,14 +62,14 @@ def game_rule():
   else:
       print("Error has occured, please contact the owner")
 
-#Level
+#Level 1
 def lvl_1():
     #Objects
 
     obj = ["hack", "club", "ship"]
 
   
-    print("Welcome to the first level, there will be three rounds")
+    print("Welcome to the first level, there will be five rounds")
     sleep(2)
     input (f"The three options for this round are: '{obj[0]}', '{obj[1]}', and '{obj[2]}'. Please press Enter/Return to continue.")
 
@@ -70,17 +77,77 @@ def lvl_1():
 
     lvl_round = 1
 
-    for lvl_round in range(3):
-        round_ans = input(f"Object selection for round {lvl_round}: ")
-        if round_ans.lower() == obj[randint(0,2)]:
-          print("You selected the same as me. Game over :(")
+    for lvl_round in range(5):
+        round_ans = input(f"Object selection for level 1:{lvl_round}: ")
+        if round_ans.lower() == obj[randint(0,2)]: #User guesses same
+          print("You selected the same as me. Game over :( \n")
+          print(f"You made it to level 1:{lvl_round}")
           exit()
-        #Make check that is valid
+        elif round_ans not in obj: #Verifies that users answer is option
+            print("You have entered a response that is not part of the game, please restart the program and start again.")
+            exit()
+
+        lvl_round += 1
+    print("You have passed level 1, now onto level 2!")
+    sleep(2)
+
+#Level 2
+def lvl_2():
+    #Objects
+
+    obj = ["YSWS", "data", "team"]
+
+  
+    print("Welcome to the second level, there will be five rounds")
+    sleep(2)
+    input (f"The three options for this round are: '{obj[0]}', '{obj[1]}', and '{obj[2]}'. Please press Enter/Return to continue.")
+
+    #Round repeater
+
+    lvl_round = 1
+
+    for lvl_round in range(5):
+        round_ans = input(f"Object selection for level 2:{lvl_round}: ")
+        if round_ans.lower() == obj[randint(0,2)]: #User guesses same
+          print("You selected the same as me. Game over :( \n")
+          print(f"You made it to level 2:{lvl_round}")
+          exit()
+        elif round_ans not in obj: #Verifies that users answer is option
+            print("You have entered a response that is not part of the game, please restart the program and start again.")
+            exit()
+
         lvl_round += 1
 
+#Level 3
+def lvl_3():
+    #Objects
 
+    obj = ["code", "tech", "file"]
 
+  
+    print("Welcome to the third level, there will be five rounds")
+    sleep(2)
+    input (f"The three options for this round are: '{obj[0]}', '{obj[1]}', and '{obj[2]}'. Please press Enter/Return to continue.")
 
+    #Round repeater
+
+    lvl_round = 1
+
+    for lvl_round in range(5):
+        round_ans = input(f"Object selection for level 3:{lvl_round}: ")
+        if round_ans.lower() == obj[randint(0,2)]: #User guesses same
+          print("You selected the same as me. Game over :( \n")
+          print(f"You made it to level 3:{lvl_round}")
+          exit()
+        elif round_ans not in obj: #Verifies that users answer is option
+            print("You have entered a response that is not part of the game, please restart the program and start again.")
+            exit()
+
+        lvl_round += 1
+
+#Acknowledgments
+def ack():
+    print("Thanks to Hack club members for contributing terms to this game. If you are highschool aged or lower go to hackclub.com to find out about great resources for coding")
 
 
 
@@ -90,3 +157,5 @@ system("clear")
 start()
 game_rule()
 lvl_1()
+lvl_2()
+lvl_3()
